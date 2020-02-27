@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              mc:Ignorable="d"
+             xmlns:Custom="clr-namespace:Regs_Login_App.Renderer"
+             xmlns:Rg="clr-namespace:Regs_Login_App.ViewModels"
+             x:Class="Regs_Login_App.Views.RegistrationPage">
+    <ContentPage.BindingContext>
+        <Rg:RegistrationVM/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="Regs.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Grid Margin="20,0,20,0" RowSpacing="20"  VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Custom:MyEntry  Placeholder="UserName" FontSize="16" x:Name="EntryUserName" Text="{Binding UserName}" />
+                        </Frame>
+                    <Label WidthRequest="200" TextColor="Red" Text="{Binding LabelUserName}" IsVisible="{Binding IsVisibleUserName}" FontSize="Medium" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="1">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Custom:MyEntry Placeholder="Password" FontSize="16" x:Name="EntryUserPassword" IsPassword="True" Text="{Binding Password}"/>
+                        </Frame>
+                        <Label   WidthRequest="200" TextColor="Red" Text="{Binding LabelPassword}" IsVisible="{Binding IsVisiblePassword}" FontSize="Medium"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                                <Custom:MyEntry  x:Name="ConfirmPasswordEntry" HorizontalOptions="Fill" IsPassword="True" Keyboard="Text" Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" />
+                            </Frame>
+                          <Label   WidthRequest="200" TextColor="Red" Text="{Binding LabelConfirmPassword}" IsVisible="{Binding IsVisibleConfirmPassword}" FontSize="Medium"/>
+                        </StackLayout>
+                    
+                    <StackLayout Grid.Row="3">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Custom:MyEntry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail" Keyboard="Email" Text="{Binding Email}"/>
+                        </Frame>                         
+                       <Label  WidthRequest="200" TextColor="Red" Text="{Binding LabelEmail}" IsVisible="{Binding IsVisibleEmail}" FontSize="Medium" />
+                     </StackLayout>
+                    <StackLayout Grid.Row="4">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Custom:MyEntry Placeholder="PhoneNumber" FontSize="16" x:Name="EntryUserPhoneNumber" Keyboard="Telephone" Text="{Binding PhoneNumber}"/>
+                        </Frame>                        
+                        <Label WidthRequest="200" TextColor="Red" Text="{Binding LabelPhoneNumber}" IsVisible="{Binding IsVisiblePhoneNumber}" FontSize="Medium" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="5">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Button Text="Register"  TextColor="White" BackgroundColor="Blue" Command="{Binding RegisterCommand}" CommandParameter="{Binding .}"/>
+                        </Frame>
+                       
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

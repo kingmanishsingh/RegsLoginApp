@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:Hp ="clr-namespace:Regs_Login_App.ViewModels"
+             x:Class="Regs_Login_App.Views.HomePage">
+    <ContentPage.BindingContext>
+        <Hp:HomePageVm/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+           <StackLayout Spacing="10" x:Name="layout" Padding="8,10">
+           
+            <ListView x:Name="listView" ItemsSource="{Binding Users}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" FontSize="Medium"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

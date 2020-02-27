@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:Custom ="clr-namespace:Regs_Login_App.Renderer"
+             xmlns:lg="clr-namespace:Regs_Login_App.ViewModels"
+             x:Class="Regs_Login_App.Views.LoginPage"  >
+    <ContentPage.BindingContext>
+        <lg:LoginVM/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content  >
+        
+        <ScrollView>
+            <StackLayout>
+                <Image Source="LoginPage.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Grid VerticalOptions="CenterAndExpand" Margin="20" RowSpacing="20" >
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Custom:MyEntry  Placeholder="UserName" FontSize="16" x:Name="EntryUserName" Text="{Binding UserName}" />
+                        </Frame>
+                        <Label WidthRequest="200" TextColor="Red" Text="{Binding LabelUserName}" IsVisible="{Binding IsVisibleUserName}" FontSize="Medium" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="1">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Custom:MyEntry Placeholder="Password" FontSize="16" x:Name="EntryUserPassword" IsPassword="True" Text="{Binding Password}"/>
+                        </Frame>
+                        <Label   WidthRequest="200" TextColor="Red" Text="{Binding LabelPassword}" IsVisible="{Binding IsVisiblePassword}" FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Button Text="Login"  TextColor="White" BackgroundColor="Blue" Command="{Binding LoginBt}" CommandParameter="{Binding .}"/>
+                        </Frame>
+               
+            </StackLayout>
+            <StackLayout Grid.Row="3">
+                        <Frame HeightRequest="50" Padding="0" CornerRadius="20">
+                            <Button Text="Sign up"  TextColor="White" BackgroundColor="Blue" Command="{Binding SignupBt}"/>
+                        </Frame>
+                           
+            </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
